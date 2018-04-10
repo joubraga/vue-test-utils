@@ -13,4 +13,10 @@ describe('Testando Say Hello', () => {
         expect(sayHello.find('h1').html()).toContain('Hello World, <strong> Jonathan </strong>')
     })
 
+    it.only('Testando nome alterado via Formulario', () => {
+        sayHello.setData({newName: 'Foo'})
+        sayHello.find('form').trigger('submit')
+        expect(sayHello.find('h1').html()).toContain('Foo')
+    })
+
 })
